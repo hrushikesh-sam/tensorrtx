@@ -346,6 +346,7 @@ ICudaEngine* build_det_engine(unsigned int maxBatchSize, IBuilder* builder, IBui
 
   // Engine config
   builder->setMaxBatchSize(maxBatchSize);
+  config->setProfilingVerbosity(ProfilingVerbosity::kDETAILED);
   config->setMaxWorkspaceSize(16 * (1 << 20));  // 16MB
 #if defined(USE_FP16)
   config->setFlag(BuilderFlag::kFP16);
@@ -451,6 +452,7 @@ ICudaEngine* build_det_p6_engine(unsigned int maxBatchSize, IBuilder* builder, I
   // Engine config
   builder->setMaxBatchSize(maxBatchSize);
   config->setMaxWorkspaceSize(16 * (1 << 20));  // 16MB
+  config->setProfilingVerbosity(ProfilingVerbosity::kDETAILED);
 #if defined(USE_FP16)
   config->setFlag(BuilderFlag::kFP16);
 #elif defined(USE_INT8)
@@ -510,7 +512,7 @@ ICudaEngine* build_cls_engine(unsigned int maxBatchSize, IBuilder* builder, IBui
   // Engine config
   builder->setMaxBatchSize(maxBatchSize);
   config->setMaxWorkspaceSize(16 * (1 << 20));  // 16MB
-
+  config->setProfilingVerbosity(ProfilingVerbosity::kDETAILED);
 #if defined(USE_FP16)
   config->setFlag(BuilderFlag::kFP16);
 #elif defined(USE_INT8)
@@ -601,6 +603,7 @@ ICudaEngine* build_seg_engine(unsigned int maxBatchSize, IBuilder* builder, IBui
 
   // Engine config
   builder->setMaxBatchSize(maxBatchSize);
+  config->setProfilingVerbosity(ProfilingVerbosity::kDETAILED);
   config->setMaxWorkspaceSize(16 * (1 << 20));  // 16MB
 #if defined(USE_FP16)
   config->setFlag(BuilderFlag::kFP16);
